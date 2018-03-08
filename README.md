@@ -1,5 +1,7 @@
 # SALIS: A-Life Simulator
 
+![SALIS running simulation](https://lh3.googleusercontent.com/Z7aPsPpKREDdmKYPQkE9tIN4jc0ZrqKqdg6o2Bdc0e81fU0tGQw2Eohv-ViCrIw7Zer-lRkd7eubnGxMh58L=w1366-h654)
+
 ## Overview
 *SALIS* is my newest artificial life project. Mainly a re-take on Tom Ray's
 TIERRA simulation, but with my very own set of tweaks. Having a grasp on TIERRA
