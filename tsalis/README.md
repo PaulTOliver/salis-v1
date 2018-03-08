@@ -26,21 +26,21 @@ renamed (any name 10 characters or shorter) and reloaded as needed.
 |tsalis l*XX*   |Loads simulation from file named *XX*.                                         |
 
 ### Keyboard commands
-|Key            |Action                                                 |
-|:--------------|------------------------------------------------------:|
-|Left arrow     |Previous page                                          |
-|Right arrow    |Next page                                              |
-|wasd           |Scroll (PROCESS and WORLD page)                        |
-|W              |Scroll to top (PROCESS and WORLD page)                 |
-|A              |Scroll to left (PROCESS page)                          |
-|zx             |Zoom in/out (WORLD page)                               |
-|op             |Select previous/next organism                          |
-|g              |Toggle data/gene view (PROCESS page)                   |
-|c              |Open console (pauses simulation)                       |
-|Space          |Run/pause simulation                                   |
-|jl             |Select first/last organism                             |
-|k              |Go to selected organism (PROCESS and WORLD page)       |
-|Numbers (1-0)  |Cycle simulation (1 = 1, 2 = 2, 3 = 4, 4 = 8, ...)     |
+|Key            |Action                                                                                       |
+|:--------------|--------------------------------------------------------------------------------------------:|
+|Left arrow     |Previous page                                                                                |
+|Right arrow    |Next page                                                                                    |
+|wasd           |Scroll (PROCESS and WORLD page)                                                              |
+|W              |Scroll to top (PROCESS and WORLD page)                                                       |
+|A              |Scroll to left (PROCESS page)                                                                |
+|zx             |Zoom in/out (WORLD page)                                                                     |
+|op             |Select previous/next organism                                                                |
+|g              |Toggle data/gene view (PROCESS page)                                                         |
+|c              |Open console (pauses simulation)                                                             |
+|Space          |Run/pause simulation                                                                         |
+|jl             |Select first/last organism                                                                   |
+|k              |Go to selected organism (PROCESS and WORLD page)                                             |
+|Numbers (1-0)  |Cycle simulation 2^(n-1) steps (i.e. 1 = 1 step, 2 = 2 steps, 3 = 4 steps, 4 = 8 steps, ...) |
 
 ### Console commands
 The console opens up when 'c' is pressed. Commands, with their respective
