@@ -84,10 +84,10 @@ enum sinst {
 #undef SILST
 };
 
-sbool si_isInst       (sbyte inst);
-sbool si_isMod        (sbyte inst);
-sbool si_isKey        (sbyte inst);
-sbool si_isLock       (sbyte inst);
-sbool si_keyLockMatch (sbyte key, sbyte lock);
+sbool si_isInst       (sword inst);
+sbool si_isMod        (sword inst);
+sbool si_isKey        (sword inst);
+sbool si_isLock       (sword inst);
+sbool si_keyLockMatch (sword key, sword lock);
 
 #endif

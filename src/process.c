@@ -6,6 +6,7 @@
 #include "instset.h"
 #include "memory.h"
 #include "process.h"
+#include "evolver.h"
 
 static sbool  g_isInit;
 static sword  g_count;
@@ -57,14 +58,14 @@ sp_load(FILE *file)
 void
 sp_save(FILE *file)
 {
-assert(g_isInit);
-assert(file);
-fwrite(&g_isInit, sizeof(sbool), 1,     file);
-fwrite(&g_count,  sizeof(sword), 1,     file);
-fwrite(&g_cap,    sizeof(sword), 1,     file);
-fwrite(&g_first,  sizeof(sword), 1,     file);
-fwrite(&g_last,   sizeof(sword), 1,     file);
-fwrite(g_procs,   sizeof(SProc), g_cap, file);
+	assert(g_isInit);
+	assert(file);
+	fwrite(&g_isInit, sizeof(sbool), 1,     file);
+	fwrite(&g_count,  sizeof(sword), 1,     file);
+	fwrite(&g_cap,    sizeof(sword), 1,     file);
+	fwrite(&g_first,  sizeof(sword), 1,     file);
+	fwrite(&g_last,   sizeof(sword), 1,     file);
+	fwrite(g_procs,   sizeof(SProc), g_cap, file);
 }
 
 sbool
@@ -307,6 +308,18 @@ incrementIP(sword pidx)
 	g_procs[pidx].sp = g_procs[pidx].ip;
 }
 
+static void
+onFault(sword pidx)
+{
+	sword ip;
+	assert(g_isInit);
+	assert(pidx < g_cap);
+	assert(!sp_isFree(pidx));
+	ip = sp_getProc(pidx).ip;
+	assert(sm_isValidAt(ip));
+	se_randomizeAt(ip);
+}
+
 static sbool
 seek(sword pidx, sbool forward)
 {
@@ -319,6 +332,7 @@ seek(sword pidx, sbool forward)
 	nextAddr = g_procs[pidx].ip + 1;
 
 	if (!sm_isValidAt(nextAddr)) {
+		onFault(pidx);
 		incrementIP(pidx);
 		return SFALSE;
 	}
@@ -326,6 +340,7 @@ seek(sword pidx, sbool forward)
 	nextInst = sm_getInstAt(nextAddr);
 
 	if (!si_isKey(nextInst)) {
+		onFault(pidx);
 		incrementIP(pidx);
 		return SFALSE;
 	}
@@ -520,6 +535,7 @@ alloc(sword pidx, sbool forward)
 		}
 
 		if (g_procs[pidx].sp != correctAddr) {
+			onFault(pidx);
 			incrementIP(pidx);
 			return;
 		}
@@ -588,6 +604,8 @@ bswap(sword pidx)
 		g_procs[pidx].mb1s = g_procs[pidx].mb2s;
 		g_procs[pidx].mb2a = addrTmp;
 		g_procs[pidx].mb2s = sizeTmp;
+	} else {
+		onFault(pidx);
 	}
 
 	incrementIP(pidx);
@@ -602,6 +620,8 @@ bclear(sword pidx)
 
 	if (g_procs[pidx].mb2s) {
 		freeMemBlock2Of(pidx);
+	} else {
+		onFault(pidx);
 	}
 
 	incrementIP(pidx);
@@ -618,6 +638,8 @@ split(sword pidx)
 		create(g_procs[pidx].mb2a, g_procs[pidx].mb2s, pidx, SFALSE);
 		g_procs[pidx].mb2a = 0;
 		g_procs[pidx].mb2s = 0;
+	} else {
+		onFault(pidx);
 	}
 
 	incrementIP(pidx);
@@ -632,8 +654,9 @@ r3op(sword pidx, sbyte inst)
 	assert(!sp_isFree(pidx));
 	getRegAddrList(pidx, regs, 3, SFALSE);
 
-	/* ignore when dividing by zero */
+	/* fault when dividing by zero */
 	if ((inst == SDIVN) && (*regs[2] == 0)) {
+		onFault(pidx);
 		incrementIP(pidx);
 		return;
 	}
@@ -755,6 +778,7 @@ load(sword pidx)
 	getRegAddrList(pidx, regs, 2, SFALSE);
 
 	if (!sm_isValidAt(*regs[0])) {
+		onFault(pidx);
 		incrementIP(pidx);
 		return;
 	}
@@ -801,11 +825,13 @@ write(sword pidx)
 	getRegAddrList(pidx, regs, 2, SFALSE);
 
 	if (!sm_isValidAt(*regs[0])) {
+		onFault(pidx);
 		incrementIP(pidx);
 		return;
 	}
 
 	if (!si_isInst(*regs[1])) {
+		onFault(pidx);
 		incrementIP(pidx);
 		return;
 	}
@@ -817,6 +843,8 @@ write(sword pidx)
 	} else {
 		if (isWriteableBy(pidx, *regs[0])) {
 			sm_setInstAt(*regs[0], *regs[1]);
+		} else {
+			onFault(pidx);
 		}
 
 		incrementIP(pidx);
