@@ -1,4 +1,5 @@
 #include <stdarg.h>
+#include <string.h>
 #include <curses.h>
 #include <salis.h>
 #include "printer.h"
@@ -714,7 +715,15 @@ tsp_printData(void)
 	int  linev = 1;
 	int *line  = &linev;
 	PHEADER("SALIS");
-	PSIDGET("name",  g_simName);
+
+	if (strlen(g_simName) < 24) {
+		PHEADER(g_simName);
+	} else {
+		attron(COLOR_PAIR(PAIR_HEADER));
+		printWidget((*line)++, "%.20s...", g_simName);
+		standend();
+	}
+
 	PSIDGET("state", g_running ? "running" : "paused");
 
 	if (g_autoSaveInterval) {

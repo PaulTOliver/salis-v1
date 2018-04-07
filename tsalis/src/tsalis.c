@@ -33,7 +33,7 @@ onLoad(const char *fileName)
 	FILE *testFile;
 
 	if (strlen(fileName) > NAME_MAX_SIZE) {
-		fputs("ERROR: File name too long", stderr);
+		fputs("ERROR: File name too long\n", stderr);
 		exit(1);
 	}
 
@@ -44,7 +44,7 @@ onLoad(const char *fileName)
 		fclose(testFile);
 		s_load(g_simName);
 	} else {
-		fputs("ERROR: File does not exist", stderr);
+		fputs("ERROR: File does not exist\n", stderr);
 		exit(1);
 	}
 }
@@ -63,11 +63,11 @@ init(int argc, char **argv)
 		} else if (cmd == 'l') {
 			onLoad(val);
 		} else {
-			fputs("ERROR: Incorrect arguments", stderr);
+			fputs("ERROR: Incorrect arguments\n", stderr);
 			exit(1);
 		}
 	} else {
-		fputs("ERROR: Incorrect argument count", stderr);
+		fputs("ERROR: Incorrect argument count\n", stderr);
 		exit(1);
 	}
 
