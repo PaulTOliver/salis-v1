@@ -106,7 +106,6 @@ static void
 quit(void)
 {
 	tsp_quit();
-	s_save(g_simName);
 	s_quit();
 }
 

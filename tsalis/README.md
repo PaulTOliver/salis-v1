@@ -51,6 +51,7 @@ control some aspects of the simulation. Parameters here are represented by
 |Command     |Param. 1    |Param. 2    |Action                                                                |
 |:-----------|:-----------|:-----------|---------------------------------------------------------------------:|
 |q           |---         |---         |Save and quit simulation.                                             |
+|x           |---         |---         |Quit simulation without saving.                                       |
 |i*XX*\_*XX* |address     |instructions|Writes given instructions into address.                               |
 |c*XX*\_*XX* |address     |file name   |Compiles given file into address.                                     |
 |n*XX*\_*XX* |address     |size        |Initializes organism of given size into address.                      |
