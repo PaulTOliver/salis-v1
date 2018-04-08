@@ -7,4 +7,5 @@
 *.d
 *.o
 *.sim
+*.auto
 *.exe
