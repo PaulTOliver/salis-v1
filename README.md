@@ -1,6 +1,6 @@
 # SALIS: A-Life Simulator
 
-![SALIS running simulation](running_sim.png)
+![SALIS running simulation](sim.png)
 
 ## Overview
 *SALIS* is my newest artificial life project. Mainly a re-take on Tom Ray's
