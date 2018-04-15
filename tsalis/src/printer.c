@@ -156,6 +156,8 @@ tsp_scrollUp(void)
 	case PAGE_WORLD:
 		if (g_worldPos >= g_worldLineCoverage) {
 			g_worldPos -= g_worldLineCoverage;
+		} else {
+			g_worldPos = 0;
 		}
 
 		break;
