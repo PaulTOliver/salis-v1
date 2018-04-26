@@ -32,4 +32,5 @@ $(OBJECTS): $(patsubst build/%.o,src/%.c,$@)
 clean:
 	-rm build/*
 	-rm $(SLIB)
+	-rm $(DLIB)
 	$(MAKE) clean -C tsalis
