@@ -4,6 +4,7 @@
 !Makefile
 !*/Makefile
 *.a
+*.so
 *.d
 *.o
 *.sim
