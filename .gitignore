@@ -10,3 +10,4 @@
 *.sim
 *.auto
 *.exe
+bin/*.png
