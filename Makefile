@@ -1,14 +1,11 @@
-AR      := ar
 CC      := gcc
-SLIB    := lib/libsalis.a
-DLIB    := lib/libsalis.so
+LIB     := bin/libsalis.so
 
 SOURCES := $(wildcard src/*.c)
 OBJECTS := $(patsubst src/%.c,build/%.o,$(SOURCES))
 DEPS    := $(patsubst %.o,%.d,$(OBJECTS))
 
-SLFLAGS := rs
-DLFLAGS := -shared
+LFLAGS  := -shared
 
 # uncomment for debug
 # OFLAGS  := -ggdb
@@ -20,8 +17,7 @@ CFLAGS  := -Iinclude -c $(OFLAGS) -MMD -Wall -Wextra -std=c89 -pedantic-errors \
            -Wmissing-prototypes -Wstrict-prototypes -Wold-style-definition
 
 all: $(OBJECTS)
-	$(AR) $(SLFLAGS) $(SLIB) $(OBJECTS)
-	$(CC) $(DLFLAGS) -o $(DLIB) $(OBJECTS)
+	$(CC) $(LFLAGS) -o $(LIB) $(OBJECTS)
 	$(MAKE) -C tsalis
 
 -include $(DEPS)
@@ -31,6 +27,5 @@ $(OBJECTS): $(patsubst build/%.o,src/%.c,$@)
 
 clean:
 	-rm build/*
-	-rm $(SLIB)
-	-rm $(DLIB)
+	-rm $(LIB)
 	$(MAKE) clean -C tsalis

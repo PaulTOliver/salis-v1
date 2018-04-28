@@ -1,11 +1,11 @@
 CC      := gcc
-BIN     := bin/tsalis
+BIN     := ../bin/tsalis
 
 SOURCES := $(wildcard src/*.c)
 OBJECTS := $(patsubst src/%.c,build/%.o,$(SOURCES))
 DEPS    := $(patsubst %.o,%.d,$(OBJECTS))
 
-LFLAGS  := -L ../lib -lsalis -lncurses
+LFLAGS  := -L ../bin -l:libsalis.so -lncurses
 
 # uncomment for debug
 # OFLAGS  := -ggdb
