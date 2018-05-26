@@ -1,10 +1,8 @@
-# SALIS UPDATES
----------------
+## SALIS UPDATES
 - Add eat-string (EATS) instruction
 - Reward organisms for "eating" information
 
-# TSALIS UPDATES
-----------------
+## TSALIS UPDATES
 - Create process cursor selector (on WORLD and PROCESS view)
 - Enable fast scrolling (on WORLD and PROCESS view)
 - Better console:
@@ -16,8 +14,7 @@
 	- Console responses
 - Make save files portable
 
-# PYTHON PLUGINS/APPS
----------------------
+## PYTHON PLUGINS/APPS
 - Create REPORT app that reads many savefiles and generates data files from:
 	- Organism count
 	- Organism sizes
