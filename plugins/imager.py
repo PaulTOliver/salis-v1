@@ -8,7 +8,7 @@ large-scale evolution of the world.
 Tu run it, simply call it from within the ./bin/ directory inside the SALIS
 main directory, such as:
 
-../plugins/imager.py def.sim.*
+../plugins/imager.py def.sim*
 
 Calling this will create a PNG image for each file beggining with "def.sim".
 """
