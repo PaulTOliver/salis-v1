@@ -11,3 +11,4 @@
 *.auto
 *.exe
 bin/*.png
+bin/auto/*

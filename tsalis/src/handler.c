@@ -240,7 +240,7 @@ tsh_handleEvent(int event)
 		tsp_scrollRight();
 		break;
 
-	case 'W':
+	case 'Q':
 		tsp_scrollToTop();
 		break;
 
