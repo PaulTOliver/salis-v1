@@ -20,6 +20,8 @@ void  tsp_prevPage         (void);
 void  tsp_nextPage         (void);
 void  tsp_scrollUp         (void);
 void  tsp_scrollDown       (void);
+void  tsp_fastScrollUp     (void);
+void  tsp_fastScrollDown   (void);
 void  tsp_scrollLeft       (void);
 void  tsp_scrollRight      (void);
 void  tsp_scrollToTop      (void);
