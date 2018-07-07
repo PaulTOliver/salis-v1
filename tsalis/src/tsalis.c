@@ -59,14 +59,11 @@ init(int argc, char **argv)
 
 	if (argc == 1) {
 		onDefault();
-	} else if (argc == 2) {
-		char  cmd = argv[1][0];
-		char *val = &argv[1][1];
-
-		if (cmd == 'n') {
-			s_init(atoi(val));
-		} else if (cmd == 'l') {
-			onLoad(val);
+	} else if (argc == 3) {
+		if (!strcmp(argv[1], "-n") || !strcmp(argv[1], "--new")) {
+			s_init(atoi(argv[2]));
+		} else if (!strcmp(argv[1], "-l") || !strcmp(argv[1], "--load")) {
+			onLoad(argv[2]);
 		} else {
 			fputs("ERROR: Incorrect arguments\n", stderr);
 			exit(1);
