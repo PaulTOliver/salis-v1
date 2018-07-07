@@ -5,7 +5,6 @@
 ## TSALIS UPDATES
 - Create process cursor selector (on WORLD and PROCESS view)
 - Better console:
-	- Console resumes sim after closing
 	- Allow longer input
 	- Allow hex input
 	- Line editing
