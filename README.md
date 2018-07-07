@@ -113,10 +113,25 @@ are set to r0x.
 |[b      |r0x  |---  |---  |r0x = address of closest previous LOKB    |
 
 ## Building instructions
-You'll need nothing but a C compiler (C89). A sample makefile (Makefile)
-is provided for GNU Make. Just run `make` inside this directory and the salis
+You'll need nothing but a C compiler (C89). If you want to build TSalis,
+you'll also need the NCurses development libraries. A sample makefile is
+provided for GNU Make. Just run `make` inside this directory and the salis
 library should compile as well as the tsalis executable. You may want to run
-`sudo make install` as well, in order to install the salis library.
+`sudo make install` as well, in order to install the salis library as such:
+
+```
+$ git clone https://github.com/paultoliver/salis
+$ cd salis/
+$ make
+$ sudo make install
+```
+
+To run, simply:
+
+```
+$ cd bin/
+$ ./tsalis
+```
 
 Feel free to edit the makefile as needed. Code should compile easily on all
 platforms and on all C89 compliant compilers. If you run into any difficulties,
