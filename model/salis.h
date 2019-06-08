@@ -6,11 +6,11 @@ extern "C" {
 #endif
 
 #include <stdio.h>
-#include <types.h>
-#include <instset.h>
-#include <memory.h>
-#include <process.h>
-#include <evolver.h>
+#include "types.h"
+#include "instset.h"
+#include "memory.h"
+#include "process.h"
+#include "evolver.h"
 
 void  s_init     (sword order);
 void  s_quit     (void);
