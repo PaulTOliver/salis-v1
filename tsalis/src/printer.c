@@ -102,12 +102,14 @@ tsp_check(void)
 		return SFALSE;
 	}
 
+	endwin();
 	return STRUE;
 }
 
 void
 tsp_init(void)
 {
+	initscr();
 	cbreak();
 	noecho();
 	curs_set(0);

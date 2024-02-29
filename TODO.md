@@ -3,7 +3,6 @@
 - Reward organisms for "eating" information
 
 ## TSALIS UPDATES
-- Better CLI arguments
 - Create process cursor selector (on WORLD and PROCESS view)
 - Better console:
 	- Console resumes sim after closing
@@ -15,6 +14,7 @@
 - Make save files portable
 
 ## PYTHON PLUGINS/APPS
+- PySalis simulation runner script
 - Create REPORT app that reads many savefiles and generates data files from:
 	- Organism sizes
 	- Instruction count

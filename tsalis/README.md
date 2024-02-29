@@ -15,17 +15,19 @@ let me know!
 
 ## List of commands
 ### Command-line arguments
-You may run *TSALIS* from the terminal in any of these three ways (arguments
+You may run *TSALIS* from the terminal in any of the following ways (arguments
 are being represented by *XX*). Note that, upon exit, *SALIS* automatically
 generates a save (by default called *def.sim*). This save file may be freely
 renamed and reloaded as needed.
 
-|Arguments      |Action                                                                          |
-|:--------------|-------------------------------------------------------------------------------:|
-|tsalis         |If file *def.sim* exists in directory, loads simulation from that file.         |
-|tsalis         |If file *def.sim* does not exist, creates new simulation (memory size 2^16).    |
-|tsalis n*XX*   |Creates new simulation with memory size 2^*XX*.                                 |
-|tsalis l*XX*   |Loads simulation from file named *XX*.                                          |
+|Arguments          |Action                                                                          |
+|:------------------|-------------------------------------------------------------------------------:|
+|tsalis             |If file *def.sim* exists in directory, loads simulation from that file.         |
+|tsalis             |If file *def.sim* does not exist, creates new simulation (memory size 2^16).    |
+|tsalis -n *XX*     |Creates new simulation with memory size 2^*XX*.                                 |
+|tsalis --new *XX*  |Creates new simulation with memory size 2^*XX*.                                 |
+|tsalis -l *XX*     |Loads simulation from file named *XX*.                                          |
+|tsalis --load *XX* |Loads simulation from file named *XX*.                                          |
 
 ### Keyboard commands
 |Key            |Action                                                                                       |
@@ -33,6 +35,7 @@ renamed and reloaded as needed.
 |Left arrow     |Previous page                                                                                |
 |Right arrow    |Next page                                                                                    |
 |wasd           |Scroll (PROCESS and WORLD page)                                                              |
+|WA             |Fast vertical scroll (PROCESS and WORLD page)                                                |
 |Q              |Scroll to top (PROCESS and WORLD page)                                                       |
 |A              |Scroll to left (PROCESS page)                                                                |
 |zx             |Zoom in/out (WORLD page)                                                                     |
