@@ -87,7 +87,9 @@ exec(void)
 				s_cycle();
 
 				if (g_autoSaveInterval && !(s_getCycle() % g_autoSaveInterval)) {
-					s_save(g_simName);
+					char extendedName[NAME_MAX_SIZE + 28];
+					sprintf(extendedName, "%s.%010u.%010u.auto", g_simName, s_getEpoch(), s_getCycle());
+					s_save(extendedName);
 				}
 
 				end   = clock();
