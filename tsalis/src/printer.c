@@ -99,6 +99,18 @@ tsp_init(void)
 	curs_set(0);
 	keypad(stdscr, TRUE);
 	start_color();
+
+	if (can_change_color()) {
+		init_color(COLOR_BLACK,     0,   0,   0);
+		init_color(COLOR_RED,     700,   0,   0);
+		init_color(COLOR_GREEN,     0, 700,   0);
+		init_color(COLOR_YELLOW,  700, 700,   0);
+		init_color(COLOR_BLUE,      0,   0, 700);
+		init_color(COLOR_MAGENTA, 700,   0, 700);
+		init_color(COLOR_CYAN,      0, 700, 700);
+		init_color(COLOR_WHITE,   700, 700, 700);
+	}
+
 	init_pair(PAIR_NORMAL,          COLOR_WHITE,  COLOR_BLACK);
 	init_pair(PAIR_HEADER,          COLOR_CYAN,   COLOR_BLACK);
 	init_pair(PAIR_SELECTED_PROC,   COLOR_YELLOW, COLOR_BLACK);
