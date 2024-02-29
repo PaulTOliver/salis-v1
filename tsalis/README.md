@@ -60,7 +60,6 @@ control some aspects of the simulation. Parameters here are represented by
 |s           |---         |---         |Save simulation.                                                      |
 |r*XX*       |name        |---         |Rename simulation (will be automatically saved to this name on exit). |
 |a*XX*       |interval    |---         |Set simulation's auto-save interval.                                  |
-|?           |---         |---         |Fill memory with random data.                                         |
 
 ### Legend
 In WORLD view, as well as in PROCESS view (when gene mode is selected), each

@@ -141,12 +141,6 @@ setAutoSave(const char *command)
 }
 
 static void
-randomize(void)
-{
-	se_randomize();
-}
-
-static void
 clearConsoleLine(void)
 {
 	move(LINES - 1, 0);
@@ -205,10 +199,6 @@ runConsole(void)
 
 	case 'a':
 		setAutoSave(&command[1]);
-		break;
-
-	case '?':
-		randomize();
 		break;
 	}
 }
