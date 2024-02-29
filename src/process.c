@@ -1084,8 +1084,6 @@ sp_cycle(void)
 		while (sm_isOverCap()) {
 			sp_kill();
 		}
-	} else {
-		sp_create(0, 1);
 	}
 
 #ifndef NDEBUG

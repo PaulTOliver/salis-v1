@@ -25,8 +25,8 @@ light, if you will).
 To watch an introductory video about *SALIS*
 [go here.](https://www.youtube.com/watch?v=jCFmOCvy6po)
 
-Follow the *SALIS* subreddit
-[here.](https://www.reddit.com/r/salis/)
+Follow *SALIS* on
+[Reddit.](https://www.reddit.com/r/salis/)
 
 ### Details
 - *SALIS* is an API, so an UI must be written to communicate with it
