@@ -113,6 +113,14 @@ generateRandomNumber(void)
 }
 
 void
+se_randomizeAt(sword addr)
+{
+	assert(g_isInit);
+	assert(sm_isValidAt(addr));
+	sm_setInstAt(addr, (sbyte)(generateRandomNumber() % SINST_COUNT));
+}
+
+void
 se_cycle(void)
 {
 	assert(g_isInit);

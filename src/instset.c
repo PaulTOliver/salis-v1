@@ -3,13 +3,13 @@
 #include "instset.h"
 
 sbool
-si_isInst(sbyte inst)
+si_isInst(sword inst)
 {
 	return inst < SINST_COUNT;
 }
 
 static sbool
-isBetween(sbyte inst, sbyte lo, sbyte hi)
+isBetween(sword inst, sword lo, sword hi)
 {
 	assert(si_isInst(inst));
 	assert(lo < SINST_COUNT);
@@ -27,28 +27,28 @@ isBetween(sbyte inst, sbyte lo, sbyte hi)
 }
 
 sbool
-si_isMod(sbyte inst)
+si_isMod(sword inst)
 {
 	assert(si_isInst(inst));
 	return isBetween(inst, SNOP0, SNOP3);
 }
 
 sbool
-si_isKey(sbyte inst)
+si_isKey(sword inst)
 {
 	assert(si_isInst(inst));
 	return isBetween(inst, SKEYA, SKEYP);
 }
 
 sbool
-si_isLock(sbyte inst)
+si_isLock(sword inst)
 {
 	assert(si_isInst(inst));
 	return isBetween(inst, SLOKA, SLOKP);
 }
 
 sbool
-si_keyLockMatch(sbyte key, sbyte lock)
+si_keyLockMatch(sword key, sword lock)
 {
 	assert(si_isKey(key));
 	assert(si_isInst(lock));

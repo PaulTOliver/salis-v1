@@ -50,11 +50,10 @@ address is selected and a random instruction is written into it.
 *SALIS*' organisms read a simple language similar to ASM. This language
 consists of 64 instructions, each with an associated name and symbol.
 Whenever an organism performs an invalid instruction it's considered a *fault*.
-To preserve robustness, faulty instructions are simply ignored by the
-organisms and their IPs are incremented to the next address.
+When a *fault* is commited by any organism, the faulty instruction gets
+randomly replaced at that address and the organism's IP gets incremented.
 
 #### Faults
-- IP or SP reaching ends of memory
 - Perform a search or attempt a jump without a following key
 - Writing to an allocated (but not owned) or invalid address
 - Reading (loading) from an invalid address
