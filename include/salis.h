@@ -1,6 +1,10 @@
 #ifndef SALIS_H
 #define SALIS_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdio.h>
 #include <types.h>
 #include <instset.h>
@@ -18,5 +22,9 @@ sword s_getCycle (void);
 sword s_getEpoch (void);
 
 void  s_cycle    (void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
