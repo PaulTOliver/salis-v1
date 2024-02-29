@@ -52,6 +52,11 @@ onLoad(const char *fileName)
 static void
 init(int argc, char **argv)
 {
+	if (!tsp_check()) {
+		fputs("ERROR: Terminal not supported\n", stderr);
+		exit(1);
+	}
+
 	if (argc == 1) {
 		onDefault();
 	} else if (argc == 2) {

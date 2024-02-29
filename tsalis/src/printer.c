@@ -90,10 +90,22 @@ adjustWorld(void)
 	}
 }
 
+sbool
+tsp_check(void)
+{
+	initscr();
+
+	if (!has_colors()) {
+		endwin();
+		return SFALSE;
+	}
+
+	return STRUE;
+}
+
 void
 tsp_init(void)
 {
-	initscr();
 	cbreak();
 	noecho();
 	curs_set(0);
