@@ -33,7 +33,7 @@ renamed and reloaded as needed.
 |Left arrow     |Previous page                                                                                |
 |Right arrow    |Next page                                                                                    |
 |wasd           |Scroll (PROCESS and WORLD page)                                                              |
-|W              |Scroll to top (PROCESS and WORLD page)                                                       |
+|Q              |Scroll to top (PROCESS and WORLD page)                                                       |
 |A              |Scroll to left (PROCESS page)                                                                |
 |zx             |Zoom in/out (WORLD page)                                                                     |
 |op             |Select previous/next organism                                                                |
