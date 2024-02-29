@@ -16,7 +16,7 @@ needed. If you run into any difficulties, please let me know!
 You may run *TSALIS* from the terminal in any of these three ways (arguments
 are being represented by *XX*). Note that, upon exit, *SALIS* automatically
 generates a save (by default called *def.sim*). This save file may be freely
-renamed (any name 10 characters or shorter) and reloaded as needed.
+renamed and reloaded as needed.
 
 |Arguments      |Action                                                                          |
 |:--------------|-------------------------------------------------------------------------------:|

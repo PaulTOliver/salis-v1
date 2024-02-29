@@ -130,6 +130,7 @@ static void
 renameSim(const char *name)
 {
 	if (strlen(name) <= NAME_MAX_SIZE) {
+		clear();
 		strncpy(g_simName, name, NAME_MAX_SIZE);
 	}
 }
