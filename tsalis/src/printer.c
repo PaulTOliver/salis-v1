@@ -392,7 +392,7 @@ printHeader(int line, const char *string)
 {
 	attron(COLOR_PAIR(PAIR_HEADER));
 	printWidget(line, string);
-	standend();
+	attron(COLOR_PAIR(PAIR_NORMAL));
 }
 
 #define PHEADER(label)       printHeader((*line)++, label)
@@ -438,7 +438,7 @@ printField(int y, int x, const char *field, sbool lalign)
 static void
 printSingleProcessGenome(int line, sword pidx)
 {
-	char  sidx[11];
+	char  sidx[13];
 	SProc proc = sp_getProc(pidx);
 	sword gidx = g_processGeneScroll;
 	int   xpos = 14;
@@ -491,7 +491,7 @@ printSingleProcessGenome(int line, sword pidx)
 		xpos++;
 	}
 
-	standend();
+	attron(COLOR_PAIR(PAIR_NORMAL));
 }
 
 static void
@@ -501,7 +501,7 @@ printProcessGenes(int *line)
 	attron(COLOR_PAIR(PAIR_HEADER));
 	printField(*line, 1, "pidx", STRUE);
 
-	standend();
+	attron(COLOR_PAIR(PAIR_NORMAL));
 	INCREMENT_LINE;
 
 	while ((*line < LINES) && (pidx < sp_getCap())) {
@@ -510,7 +510,7 @@ printProcessGenes(int *line)
 		pidx++;
 	}
 
-	standend();
+	attron(COLOR_PAIR(PAIR_NORMAL));
 }
 
 static void
@@ -539,7 +539,7 @@ printSingleProcessData(int line, sword pidx)
 		xpos += 13;
 	}
 
-	standend();
+	attron(COLOR_PAIR(PAIR_NORMAL));
 }
 
 static void
@@ -559,7 +559,7 @@ printProcessData(int *line)
 		xpos += 13;
 	}
 
-	standend();
+	attron(COLOR_PAIR(PAIR_NORMAL));
 	INCREMENT_LINE;
 
 	while ((*line < LINES) && (pidx < sp_getCap())) {
@@ -568,7 +568,7 @@ printProcessData(int *line)
 		pidx++;
 	}
 
-	standend();
+	attron(COLOR_PAIR(PAIR_NORMAL));
 }
 
 static void
@@ -681,7 +681,7 @@ printWorld(void)
 				mvaddch(y, xpos, symbol);
 			}
 
-			standend();
+			attron(COLOR_PAIR(PAIR_NORMAL));
 		}
 	}
 }
@@ -707,7 +707,7 @@ printWorldPage(int *line)
 		PWIDGET(g_procElems[eidx], data[eidx]);
 	}
 
-	standend();
+	attron(COLOR_PAIR(PAIR_NORMAL));
 	printWorld();
 }
 
@@ -723,7 +723,7 @@ tsp_printData(void)
 	} else {
 		attron(COLOR_PAIR(PAIR_HEADER));
 		printWidget((*line)++, "%.20s...", g_simName);
-		standend();
+		attron(COLOR_PAIR(PAIR_NORMAL));
 	}
 
 	PSIDGET("state", g_running ? "running" : "paused");

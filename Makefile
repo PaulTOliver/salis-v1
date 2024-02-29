@@ -1,5 +1,6 @@
 CC      := gcc
 LIB     := bin/libsalis.so
+ULIB    := /usr/lib/libsalis.so
 
 SOURCES := $(wildcard src/*.c)
 OBJECTS := $(patsubst src/%.c,build/%.o,$(SOURCES))
@@ -13,8 +14,9 @@ LFLAGS  := -shared
 # uncomment for release
 OFLAGS  := -O3 -DNDEBUG
 
-CFLAGS  := -Iinclude -c $(OFLAGS) -MMD -Wall -Wextra -std=c89 -pedantic-errors \
-           -Wmissing-prototypes -Wstrict-prototypes -Wold-style-definition
+CFLAGS  := -Iinclude -c $(OFLAGS) -MMD -Wall -Wextra -std=c89 -fPIC \
+           -pedantic-errors -Wmissing-prototypes -Wstrict-prototypes \
+           -Wold-style-definition
 
 all: $(OBJECTS)
 	$(CC) $(LFLAGS) -o $(LIB) $(OBJECTS)
@@ -29,3 +31,6 @@ clean:
 	-rm build/*
 	-rm $(LIB)
 	$(MAKE) clean -C tsalis
+
+install:
+	cp $(LIB) $(ULIB)

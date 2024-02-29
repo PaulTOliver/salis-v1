@@ -115,6 +115,9 @@ are set to r0x.
 ## Building instructions
 You'll need nothing but a C compiler (C89). A sample makefile (Makefile)
 is provided for GNU Make. Just run `make` inside this directory and the salis
-library should compile as well as the tsalis executable. Feel free to edit
-the makefile as needed. Code should compile easily on all platforms and on all
-C89 compliant compilers. If you run into any difficulties, please let me know!
+library should compile as well as the tsalis executable. You may want to run
+`sudo make install` as well, in order to install the salis library.
+
+Feel free to edit the makefile as needed. Code should compile easily on all
+platforms and on all C89 compliant compilers. If you run into any difficulties,
+please let me know!
