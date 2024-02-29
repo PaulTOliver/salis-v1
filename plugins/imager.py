@@ -22,14 +22,14 @@ salis.sm_getSize.restype = c_uint
 def makeImage(iname):
 	salis.s_load(bytes(iname, "utf-8"))
 	lsize  = int(salis.sm_getSize() ** 0.5)
-	image  = Image.new("RGB", (lsize, lsize), "black")
+	image  = Image.new("L", (lsize, lsize), "black")
 	pixels = image.load()
 
 	for y in range(lsize):
 		for x in range(lsize):
 			addr = (y * lsize) + x
 			byte = salis.sm_getByteAt(addr)
-			pixels[x, y] = (byte // 4, byte // 2, byte)
+			pixels[x, y] = byte
 
 	salis.s_quit()
 	oname = iname + ".png"
