@@ -277,10 +277,17 @@ tsh_handleEvent(int event)
 		break;
 
 	case 'c':
-		g_running = SFALSE;
-		nodelay(stdscr, SFALSE);
+		if (g_running) {
+			nodelay(stdscr, SFALSE);
+		}
+
 		tsp_printData();
 		runConsole();
+
+		if (g_running) {
+			nodelay(stdscr, STRUE);
+		}
+
 		break;
 
 	case ' ':
