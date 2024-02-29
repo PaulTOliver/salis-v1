@@ -1,0 +1,10 @@
+*
+!*.*
+!*/
+!Makefile
+!*/Makefile
+*.a
+*.d
+*.o
+*.sim
+*.exe
