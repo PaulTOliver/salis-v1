@@ -5,11 +5,13 @@ portable enough and should run easily in any terminal environment.
 
 ## Building instructions
 You'll need nothing but a C compiler (C89). You must build the program and link
-it with *SALIS* (e.g. *libsalis.a*) and ncurses. A sample makefile
+it with *SALIS* (e.g. *libsalis.so*) and ncurses. A sample makefile
 (Makefile) is provided for GNU Make. You can also just run the `make` command
 inside the salis directory and it will automate the building and linking of
-both the library and this application. Feel free to edit both makefiles as
-needed. If you run into any difficulties, please let me know!
+both the library and this application. By default, both *SALIS* and *TSALIS*
+will be built on the `bin` directory, on the *SALIS* main repository. Feel
+free to edit both makefiles as needed. If you run into any difficulties, please
+let me know!
 
 ## List of commands
 ### Command-line arguments

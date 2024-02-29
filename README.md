@@ -28,7 +28,7 @@ To watch an introductory video about *SALIS*
 ### Details
 - *SALIS* is an API, so an UI must be written to communicate with it
 - *SALIS* is written in C
-- *SALIS* must be compiled as a library (e.g. *libsalis.a*)
+- *SALIS* must be compiled as a library (e.g. *libsalis.so*)
 
 ### Organisms consist of
 - One or two associated memory blocks
