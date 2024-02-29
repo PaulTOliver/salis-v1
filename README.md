@@ -40,6 +40,11 @@ To watch an introductory video about *SALIS*
 ### Queue
 - Newborn organisms are placed on top of the queue
 - Organisms are killed at the bottom of the queue
+- Organisms are killed whenever memory fills above 50%
+
+### Evolution
+In *SALIS* mutation occurs via *cosmic rays*: at every cycle a random 32 bit
+address is selected and a random instruction is written into it.
 
 ### Instruction set
 *SALIS*' organisms read a simple language similar to ASM. This language
