@@ -5,6 +5,8 @@
 #include "printer.h"
 #include "tsalis.h"
 
+#define PROC_PAGE_LINES_BEFORE_LIST 16
+
 enum {
 	PAIR_NORMAL          =  1,
 	PAIR_HEADER          =  2,
@@ -111,18 +113,6 @@ tsp_init(void)
 	curs_set(0);
 	keypad(stdscr, TRUE);
 	start_color();
-
-	if (can_change_color()) {
-		init_color(COLOR_BLACK,     0,   0,   0);
-		init_color(COLOR_RED,     700,   0,   0);
-		init_color(COLOR_GREEN,     0, 700,   0);
-		init_color(COLOR_YELLOW,  700, 700,   0);
-		init_color(COLOR_BLUE,      0,   0, 700);
-		init_color(COLOR_MAGENTA, 700,   0, 700);
-		init_color(COLOR_CYAN,      0, 700, 700);
-		init_color(COLOR_WHITE,   700, 700, 700);
-	}
-
 	init_pair(PAIR_NORMAL,          COLOR_WHITE,  COLOR_BLACK);
 	init_pair(PAIR_HEADER,          COLOR_CYAN,   COLOR_BLACK);
 	init_pair(PAIR_SELECTED_PROC,   COLOR_YELLOW, COLOR_BLACK);
@@ -210,6 +200,59 @@ tsp_scrollDown(void)
 	}
 
 	refresh();
+}
+
+void
+tsp_fastScrollUp(void)
+{
+	switch (g_currentPage) {
+	case PAGE_PROCESS: {
+			sword toScroll = LINES - PROC_PAGE_LINES_BEFORE_LIST;
+
+			if (g_processVertScroll >= toScroll) {
+				g_processVertScroll -= toScroll;
+			} else {
+				g_processVertScroll = 0;
+			}
+		}
+
+		break;
+
+	case PAGE_WORLD:
+		if (g_worldPos >= g_worldArea) {
+			g_worldPos -= g_worldArea;
+		} else {
+			g_worldPos = 0;
+		}
+
+		break;
+	}
+
+	refresh();
+}
+
+void
+tsp_fastScrollDown(void)
+{
+	switch (g_currentPage) {
+	case PAGE_PROCESS: {
+			sword toScroll = LINES - PROC_PAGE_LINES_BEFORE_LIST;
+
+			if (g_processVertScroll < (sp_getCap() - toScroll)) {
+				g_processVertScroll += toScroll;
+			}
+		}
+
+		break;
+
+	case PAGE_WORLD:
+		if ((g_worldPos + g_worldArea) < sm_getSize()) {
+			g_worldPos += g_worldArea;
+		}
+
+		break;
+	}
+
 }
 
 void
