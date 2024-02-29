@@ -12,6 +12,7 @@ sbyte se_getLastInst    (void);
 sword se_getState       (sword eidx);
 void  se_setState       (sword eidx, sword state);
 
+void  se_randomize      (void);
 void  se_cycle          (void);
 
 #endif
