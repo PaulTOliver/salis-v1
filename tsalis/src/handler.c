@@ -163,11 +163,10 @@ runConsole(void)
 
 	switch (command[0]) {
 	case 'q':
-		s_save(g_simName);
-		g_exit = STRUE;
-		break;
+		if (command[1] != '!') {
+			s_save(g_simName);
+		}
 
-	case 'x':
 		g_exit = STRUE;
 		break;
 
